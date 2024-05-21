@@ -35,11 +35,12 @@
   },
   "resolutions": {
     "nuxt": "^3.11.0",
-    "eslint": "^9.0.0"
+    "eslint": "^9.3.0"
   },
   "dependencies": {
     "@nuxt/eslint": "^0.3.13",
-    "@nuxt/kit": "^3.11.2"
+    "@nuxt/kit": "^3.11.2",
+    "eslint": "^9.3.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.2.0",
@@ -50,7 +51,6 @@
     "@types/node": "^20.12.11",
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.5.5",
-    "eslint": "^9.2.0",
     "npm-run-all2": "^6.2.0",
     "nuxt": "^3.11.2",
     "typescript": "latest",
