@@ -39,7 +39,8 @@ export default defineNuxtModule<ModuleOptions>({
 });
 
 /**
- * q: want to make comment
+ * Generate eslint config template
+ *
  * @param filename
  */
 const genEslintConfig = (filename = "./playgournd/eslint.config.mjs") => {};
