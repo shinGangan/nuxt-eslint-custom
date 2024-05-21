@@ -24,15 +24,18 @@
   "scripts": {
     "play": "pnpm -F playground",
     "clean": "nuxi cleanup playground",
-    "prepack": "nuxt-module-build build",
-    "dev": "pnpm play run dev",
-    "dev:build": "pnpm play build",
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm run build",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+  },
+  "resolutions": {
+    "nuxt": "^3.11.0",
+    "eslint": "^9.0.0"
   },
   "dependencies": {
     "@nuxt/eslint": "^0.3.13",

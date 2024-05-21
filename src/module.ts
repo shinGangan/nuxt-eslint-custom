@@ -1,19 +1,45 @@
-import { defineNuxtModule, addPlugin, createResolver } from "@nuxt/kit";
+import {
+  createResolver,
+  defineNuxtModule,
+  installModule,
+  useNuxt,
+} from "@nuxt/kit";
+import { name, resolutions, version } from "../package.json";
+import type { ModuleOptions } from "./types";
 
-// Module options TypeScript interface definition
-export interface ModuleOptions {}
+const defaults = (nuxt = useNuxt()): ModuleOptions => ({});
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: "my-module",
-    configKey: "myModule",
+    name,
+    version,
+    configKey: "eslint-ctm",
+    compatibility: {
+      nuxt: resolutions.nuxt,
+    },
   },
-  // Default configuration options of the Nuxt module
-  defaults: {},
-  setup(_options, _nuxt) {
+  defaults,
+  async setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url);
 
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve("./runtime/plugin"));
+    // TODO: add eslint.config template
+    const configTemplate = genEslintConfig();
+
+    // install module
+    await installModule("@nuxt/eslint", {
+      config: {
+        stylistic: {
+          quotes: "double",
+          semi: true,
+        },
+      },
+      checker: false,
+    });
   },
 });
+
+/**
+ * q: want to make comment
+ * @param filename
+ */
+const genEslintConfig = (filename = "./playgournd/eslint.config.mjs") => {};
