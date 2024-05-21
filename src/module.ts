@@ -4,18 +4,17 @@ import {
   installModule,
   useNuxt,
 } from "@nuxt/kit";
-import { name, resolutions, version } from "../package.json";
 import type { ModuleOptions } from "./types";
 
 const defaults = (nuxt = useNuxt()): ModuleOptions => ({});
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name,
-    version,
+    name: "@shinGangan/nuxt-eslint-custom",
+    version: "v0.0.1",
     configKey: "eslint-ctm",
     compatibility: {
-      nuxt: resolutions.nuxt,
+      nuxt: "^3.0.0",
     },
   },
   defaults,
