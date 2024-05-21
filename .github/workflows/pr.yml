@@ -20,8 +20,7 @@ jobs:
     if: ${{ github.event.pull_request.assignee == null }}
     permissions:
       contents: read
-      repository-projects: read
-      issues: write
+      pull-requests: write
     with:
       number: ${{ github.event.pull_request.number }}
       title: ${{ github.event.pull_request.title }}
