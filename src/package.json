@@ -1,0 +1,60 @@
+{
+  "name": "@shinGangan/nuxt-eslint-custom",
+  "description": "Nuxt modules that extend and use the Nuxt ESLint module",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinGangan/nuxt-eslint-custom"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "play": "pnpm -F playground",
+    "clean": "nuxi cleanup playground",
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm run build",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
+  },
+  "resolutions": {
+    "nuxt": "^3.11.0",
+    "eslint": "^9.3.0"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/kit": "^3.11.2",
+    "eslint": "^9.3.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.2.0",
+    "@nuxt/eslint-config": "^0.3.10",
+    "@nuxt/module-builder": "^0.6.0",
+    "@nuxt/schema": "^3.11.2",
+    "@nuxt/test-utils": "^3.12.1",
+    "@types/node": "^20.12.11",
+    "@vue/test-utils": "^2.4.6",
+    "changelogen": "^0.5.5",
+    "npm-run-all2": "^6.2.0",
+    "nuxt": "^3.11.2",
+    "typescript": "latest",
+    "vitest": "^1.6.0",
+    "vue-tsc": "^2.0.16"
+  }
+}
