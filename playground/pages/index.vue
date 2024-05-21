@@ -1,8 +1,12 @@
-<template>
-  <div>
-    Nuxt module playground!
-  </div>
-</template>
+<script setup lang="ts">
+const title = ref("Nuxt module playground! 🦒");
 
-<script setup>
+const showAlert = () => {
+  alert("Hello, Nuxt module!");
+};
 </script>
+
+<template>
+  <div>{{ title }}</div>
+  <button @click="showAlert">Show alert</button>
+</template>

@@ -10,9 +10,8 @@ export default createConfigForNuxt({
     },
   },
   dirs: {
-    src: ["./playground"],
+    src: ["./src"],
   },
-})
-  .append
-  // your custom flat config here...
-  ();
+}).append({
+  ignores: ["**/.github", ".vscode/**"],
+});
